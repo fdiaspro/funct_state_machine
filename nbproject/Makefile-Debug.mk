@@ -35,9 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/1472/Engine.o \
-	${OBJECTDIR}/_ext/1472/Functor.o \
-	${OBJECTDIR}/_ext/1472/Main.o
+	${OBJECTDIR}/Source/Engine.o \
+	${OBJECTDIR}/Source/Functor.o \
+	${OBJECTDIR}/Source/Main.o
 
 # Test Directory
 TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
@@ -70,20 +70,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/funct_state_machine: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/funct_state_machine ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/1472/Engine.o: ../Engine.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1472
+${OBJECTDIR}/Source/Engine.o: Source/Engine.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1472/Engine.o ../Engine.cpp
+	$(COMPILE.cc) -g -IHeader -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Source/Engine.o Source/Engine.cpp
 
-${OBJECTDIR}/_ext/1472/Functor.o: ../Functor.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1472
+${OBJECTDIR}/Source/Functor.o: Source/Functor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1472/Functor.o ../Functor.cpp
+	$(COMPILE.cc) -g -IHeader -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Source/Functor.o Source/Functor.cpp
 
-${OBJECTDIR}/_ext/1472/Main.o: ../Main.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1472
+${OBJECTDIR}/Source/Main.o: Source/Main.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1472/Main.o ../Main.cpp
+	$(COMPILE.cc) -g -IHeader -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Source/Main.o Source/Main.cpp
 
 # Subprojects
 .build-subprojects:
@@ -98,46 +98,46 @@ ${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/newsimpletest.o ${OBJECTFILES:%.o=%_no
 ${TESTDIR}/tests/newsimpletest.o: tests/newsimpletest.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/newsimpletest.o tests/newsimpletest.cpp
+	$(COMPILE.cc) -g -IHeader -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/newsimpletest.o tests/newsimpletest.cpp
 
 
-${OBJECTDIR}/_ext/1472/Engine_nomain.o: ${OBJECTDIR}/_ext/1472/Engine.o ../Engine.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1472
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/1472/Engine.o`; \
+${OBJECTDIR}/Source/Engine_nomain.o: ${OBJECTDIR}/Source/Engine.o Source/Engine.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Source
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Source/Engine.o`; \
 	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1472/Engine_nomain.o ../Engine.cpp;\
+	    $(COMPILE.cc) -g -IHeader -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Source/Engine_nomain.o Source/Engine.cpp;\
 	else  \
-	    ${CP} ${OBJECTDIR}/_ext/1472/Engine.o ${OBJECTDIR}/_ext/1472/Engine_nomain.o;\
+	    ${CP} ${OBJECTDIR}/Source/Engine.o ${OBJECTDIR}/Source/Engine_nomain.o;\
 	fi
 
-${OBJECTDIR}/_ext/1472/Functor_nomain.o: ${OBJECTDIR}/_ext/1472/Functor.o ../Functor.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1472
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/1472/Functor.o`; \
+${OBJECTDIR}/Source/Functor_nomain.o: ${OBJECTDIR}/Source/Functor.o Source/Functor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Source
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Source/Functor.o`; \
 	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1472/Functor_nomain.o ../Functor.cpp;\
+	    $(COMPILE.cc) -g -IHeader -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Source/Functor_nomain.o Source/Functor.cpp;\
 	else  \
-	    ${CP} ${OBJECTDIR}/_ext/1472/Functor.o ${OBJECTDIR}/_ext/1472/Functor_nomain.o;\
+	    ${CP} ${OBJECTDIR}/Source/Functor.o ${OBJECTDIR}/Source/Functor_nomain.o;\
 	fi
 
-${OBJECTDIR}/_ext/1472/Main_nomain.o: ${OBJECTDIR}/_ext/1472/Main.o ../Main.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1472
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/1472/Main.o`; \
+${OBJECTDIR}/Source/Main_nomain.o: ${OBJECTDIR}/Source/Main.o Source/Main.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Source
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Source/Main.o`; \
 	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1472/Main_nomain.o ../Main.cpp;\
+	    $(COMPILE.cc) -g -IHeader -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Source/Main_nomain.o Source/Main.cpp;\
 	else  \
-	    ${CP} ${OBJECTDIR}/_ext/1472/Main.o ${OBJECTDIR}/_ext/1472/Main_nomain.o;\
+	    ${CP} ${OBJECTDIR}/Source/Main.o ${OBJECTDIR}/Source/Main_nomain.o;\
 	fi
 
 # Run Test Targets

@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="95">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="HeaderFiles"
-                   displayName="Header Files"
-                   projectFiles="true">
-      <itemPath>../Engine.h</itemPath>
-      <itemPath>../EventData.h</itemPath>
-      <itemPath>../FuncStateMachine.h</itemPath>
-      <itemPath>../Functor.h</itemPath>
+    <logicalFolder name="Header" displayName="Header" projectFiles="true">
+      <itemPath>Header/Engine.h</itemPath>
+      <itemPath>Header/EventData.h</itemPath>
+      <itemPath>Header/FuncStateMachine.h</itemPath>
+      <itemPath>Header/Functor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
     </logicalFolder>
-    <logicalFolder name="SourceFiles"
-                   displayName="Source Files"
-                   projectFiles="true">
-      <itemPath>../Engine.cpp</itemPath>
-      <itemPath>../Functor.cpp</itemPath>
-      <itemPath>../Main.cpp</itemPath>
+    <logicalFolder name="Source" displayName="Source" projectFiles="true">
+      <itemPath>Source/Engine.cpp</itemPath>
+      <itemPath>Source/Functor.cpp</itemPath>
+      <itemPath>Source/Main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -38,6 +34,10 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>Header</Elem>
+    <Elem>Source</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -50,21 +50,24 @@
         <ccTool>
           <standard>8</standard>
           <commandlineTool>g++</commandlineTool>
+          <incDir>
+            <pElem>Header</pElem>
+          </incDir>
         </ccTool>
       </compileType>
-      <item path="../Engine.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Header/Engine.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../Engine.h" ex="false" tool="3" flavor2="0">
+      <item path="Header/EventData.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../EventData.h" ex="false" tool="3" flavor2="0">
+      <item path="Header/FuncStateMachine.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../FuncStateMachine.h" ex="false" tool="3" flavor2="0">
+      <item path="Header/Functor.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../Functor.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Source/Engine.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../Functor.h" ex="false" tool="3" flavor2="0">
+      <item path="Source/Functor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../Main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Source/Main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <folder path="TestFiles/f1">
         <cTool>
@@ -104,19 +107,19 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="../Engine.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Header/Engine.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../Engine.h" ex="false" tool="3" flavor2="0">
+      <item path="Header/EventData.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../EventData.h" ex="false" tool="3" flavor2="0">
+      <item path="Header/FuncStateMachine.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../FuncStateMachine.h" ex="false" tool="3" flavor2="0">
+      <item path="Header/Functor.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../Functor.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Source/Engine.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../Functor.h" ex="false" tool="3" flavor2="0">
+      <item path="Source/Functor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../Main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Source/Main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <folder path="TestFiles/f1">
         <cTool>
