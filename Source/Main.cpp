@@ -10,8 +10,8 @@ int main(int argc, char** argv)
 {
     	cout << "state machine sample" << endl;
 
-	//std::unique_ptr<engineMachineState> prtEms ( IdleState);
-    engineMachineState* prtEms= (new IdleState());
+    std::unique_ptr<engineMachineState> prtEms (new IdleState() );
+    //engineMachineState* prtEms= (new IdleState());
 
 
 
@@ -30,10 +30,9 @@ int main(int argc, char** argv)
 
 	for (auto speedEvent : eventData)
 	{
-            engineMachineState* ptAppoggio =  prtEms->operator()(speedEvent);
-            
-            delete prtEms;
-            prtEms = ptAppoggio;                 	
+            std::unique_ptr<engineMachineState> ptAppoggio ( prtEms->operator()(speedEvent) );
+    
+            prtEms =std::move(ptAppoggio);                 	
 	}
 
 
