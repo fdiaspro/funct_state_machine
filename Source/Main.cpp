@@ -8,12 +8,14 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+    	cout << "state machine sample" << endl;
+
 	//std::unique_ptr<engineMachineState> prtEms ( IdleState);
-	engineMachineState* prtEms = new IdleState();
+    engineMachineState* prtEms= (new IdleState());
 
 
 
-	cout << "state machine sample" << endl;
+	 
 	 
 	std::vector<Speed> eventData;
 
@@ -23,13 +25,15 @@ int main(int argc, char** argv)
 	eventData.push_back( *new Speed(40) );
 	eventData.push_back( *new Speed(0)  );
 	eventData.push_back( *new Speed(0)  );
-	eventData.push_back(*new Speed(0));
+	 
 
 
 	for (auto speedEvent : eventData)
 	{
-		prtEms = prtEms->operator()(speedEvent);
-	
+            engineMachineState* ptAppoggio =  prtEms->operator()(speedEvent);
+            
+            delete prtEms;
+            prtEms = ptAppoggio;                 	
 	}
 
 

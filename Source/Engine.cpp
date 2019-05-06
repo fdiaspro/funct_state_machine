@@ -14,11 +14,10 @@ engineMachineState* IdleState::operator()(Speed &p)
 	engineMachineState* ptr;
 
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
-	std::cout << "state " << this->getEms() << std::endl;
 
 	if (p.getEventData() == 0)
 	{
-		return this;
+		return new IdleState();
 	}
 	else
 	{
@@ -30,11 +29,15 @@ engineMachineState* IdleState::operator()(Speed &p)
 }
 
 
+void engineMachineState::printInfo() {
+	std::cout << "state " << ems << std::endl;
+	std::cout << "speed " << speed << std::endl;
+}
+
 engineMachineState* StartState::operator()(Speed &p)
 {
 	engineMachineState*  ptr;
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
-	std::cout << "state " << this->getEms() << std::endl;
 
 	if (p.getEventData() == 0)
 	{
@@ -54,7 +57,7 @@ engineMachineState* StopState::operator()(Speed &p)
 {
 	engineMachineState*  ptr;
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
-	std::cout << "state "<< this->getEms() << std::endl;
+ 
 	if (p.getEventData() > 0)
 	{
 		ptr = new StartState(p.getEventData());;
@@ -73,7 +76,6 @@ engineMachineState* ChangeSpeedState::operator()(Speed &p)
 	engineMachineState*  ptr;
 
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
-	std::cout << "state " << this->getEms() << std::endl;
 
 	if (p.getEventData() > 0)
 	{

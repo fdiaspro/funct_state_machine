@@ -33,6 +33,8 @@ class engineMachineState : public StateMachine<engineMachineState*, Speed>
 {
 	engine_machine_state ems{ IDLE };
 	unsigned int         speed{ 0 };
+protected:
+        void printInfo() ;
 public:
 	engineMachineState(engine_machine_state _ems, unsigned int _speed) : ems(_ems), speed(_speed){};
 	engine_machine_state& getEms() { return ems; };
@@ -48,7 +50,7 @@ class IdleState : public engineMachineState
 {
 public:
 
-	IdleState(): engineMachineState(IDLE, 0) {};
+	IdleState(): engineMachineState(IDLE, 0) {printInfo() ;};
 	engineMachineState* operator()(Speed &p) ;
  
 };
@@ -58,7 +60,7 @@ class StartState : public engineMachineState
 {
 public:
 
-	StartState(unsigned int speed) : engineMachineState(START, speed) {};
+	StartState(unsigned int speed) : engineMachineState(START, speed) {printInfo() ;};
 
 	engineMachineState* operator()(Speed &p) ;
 
@@ -69,7 +71,7 @@ class StopState : public engineMachineState
 {
 public:
 
-	StopState() : engineMachineState(STOP, 0) {};
+	StopState() : engineMachineState(STOP, 0) {printInfo() ;};
 
 	engineMachineState* operator()(Speed &p) ;
 
@@ -80,7 +82,7 @@ class ChangeSpeedState : public engineMachineState
 public:
 
 	ChangeSpeedState(unsigned int speed) : engineMachineState(CHANGE_SPEED, speed) 
-        {};
+        {printInfo() ;};
 
 	engineMachineState* operator()(Speed &p) ;
 
