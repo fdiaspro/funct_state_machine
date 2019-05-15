@@ -6,7 +6,7 @@
 #include "Functor.h"
 
 template <class State, class EventData>
-class StateMachine
+class StateMachine : public Functor<  State,   EventData>
 {
 public:
 	
