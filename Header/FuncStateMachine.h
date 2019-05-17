@@ -6,10 +6,10 @@
 #include "Functor.h"
 
 template <class State, class EventData>
-class StateMachine : public Functor<  State,   EventData>
+class StateMachine : FunctorImpl<State,   EventData>
 {
 public:
-	
+    
 	 
 	virtual ~StateMachine() {};
 

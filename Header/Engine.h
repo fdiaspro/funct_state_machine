@@ -36,6 +36,8 @@ class engineMachineState : public StateMachine<engineMachineState*, Speed>
 protected:
         void printInfo() ;
 public:
+    engineMachineState(){};
+    ~engineMachineState(){};
 	engineMachineState(engine_machine_state _ems, unsigned int _speed) : ems(_ems), speed(_speed){};
 	engine_machine_state& getEms() { return ems; };
 	unsigned int         getSpeed() { return speed; };
@@ -52,6 +54,7 @@ public:
 
 	IdleState(): engineMachineState(IDLE, 0) {printInfo() ;};
 	engineMachineState* operator()(Speed &p) ;
+        virtual ~IdleState(){};
  
 };
 
@@ -63,7 +66,7 @@ public:
 	StartState(unsigned int speed) : engineMachineState(START, speed) {printInfo() ;};
 
 	engineMachineState* operator()(Speed &p) ;
-
+        virtual ~StartState(){};
 };
 
 
@@ -74,6 +77,8 @@ public:
 	StopState() : engineMachineState(STOP, 0) {printInfo() ;};
 
 	engineMachineState* operator()(Speed &p) ;
+                virtual ~StopState(){};
+
 
 };
 
@@ -85,6 +90,7 @@ public:
         {printInfo() ;};
 
 	engineMachineState* operator()(Speed &p) ;
+        virtual  ~ChangeSpeedState(){};
 
 };
 
