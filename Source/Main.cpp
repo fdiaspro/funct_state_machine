@@ -8,10 +8,10 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-    	cout << "state machine sample" << endl;
+    	cout << "state machine example" << endl;
 
-    std::unique_ptr<engineMachineState> prtEms ( new IdleState() );
-    //engineMachineState* prtEms= (new IdleState());
+    //std::unique_ptr<engineMachineState> prtEms ( new IdleState() );
+    engineMachineState* prtEms= (new IdleState());
 
 
 
@@ -32,11 +32,12 @@ int main(int argc, char** argv)
 
 	for (auto speedEvent : eventData)
 	{
-            std::unique_ptr<engineMachineState> ptAppoggio ( prtEms->operator()(speedEvent) );
-    //        engineMachineState* ptAppoggio = prtEms->operator()(speedEvent) ;
-            prtEms =std::move( ptAppoggio );                 	
-      //      delete prtEms;
-        //    prtEms=ptAppoggio;
+            //std::unique_ptr<engineMachineState> ptAppoggio ( prtEms->operator()(speedEvent) );
+          //  prtEms =std::move( ptAppoggio );                 	
+
+            engineMachineState* ptAppoggio = prtEms->operator()(speedEvent) ;
+           delete prtEms;
+            prtEms=ptAppoggio;
 	}
 
 
