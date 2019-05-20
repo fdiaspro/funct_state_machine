@@ -21,6 +21,8 @@ int main(int argc, char** argv)
 
 	eventData.push_back( *new Speed()   );
 	eventData.push_back( *new Speed(20) );
+
+
 	eventData.push_back( *new Speed(30) );
 	eventData.push_back( *new Speed(40) );
 	eventData.push_back( *new Speed(0)  );
@@ -32,7 +34,7 @@ int main(int argc, char** argv)
 	{
             std::unique_ptr<engineMachineState> ptAppoggio ( prtEms->operator()(speedEvent) );
     //        engineMachineState* ptAppoggio = prtEms->operator()(speedEvent) ;
-            prtEms =std::move(ptAppoggio);                 	
+            prtEms =std::move( ptAppoggio );                 	
       //      delete prtEms;
         //    prtEms=ptAppoggio;
 	}
