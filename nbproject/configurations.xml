@@ -54,6 +54,12 @@
             <pElem>Header</pElem>
           </incDir>
         </ccTool>
+        <linkerTool>
+          <commandlineTool>g++   --std=c++11</commandlineTool>
+          <linkerLibItems>
+            <linkerLibStdlibItem>PosixThreads</linkerLibStdlibItem>
+          </linkerLibItems>
+        </linkerTool>
       </compileType>
       <item path="Header/Engine.h" ex="false" tool="3" flavor2="0">
       </item>

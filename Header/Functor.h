@@ -16,8 +16,6 @@ public:
 // functor
 template <class R, class P>
 class Functor {
-
-
 public:
 	typedef R ResultType;
 	typedef P ParmType;

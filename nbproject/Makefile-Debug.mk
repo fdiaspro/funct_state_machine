@@ -60,7 +60,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-lpthread
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -68,7 +68,7 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/funct_state_machine: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/funct_state_machine ${OBJECTFILES} ${LDLIBSOPTIONS}
+	g++   --std=c++11 -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/funct_state_machine ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Source/Engine.o: Source/Engine.cpp 
 	${MKDIR} -p ${OBJECTDIR}/Source

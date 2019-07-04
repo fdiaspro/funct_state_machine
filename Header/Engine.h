@@ -4,16 +4,6 @@
 #include <vector>
 #include "FuncStateMachine.h"
 
-typedef enum {
-	IDLE =0,
-	START,
-	STOP,
-	CHANGE_SPEED,
-	MAX_ENUM_EMS
-} engine_machine_state;
-
-std::ostream& operator<<(std::ostream& os, engine_machine_state& p);
-
 class Speed : public EventData<unsigned int>
 {
 protected:
@@ -29,6 +19,16 @@ public:
 };
 
 
+typedef enum {
+	IDLE =0,
+	START,
+	STOP,
+	CHANGE_SPEED,
+	MAX_ENUM_EMS
+} engine_machine_state;
+
+std::ostream& operator<<(std::ostream& os, engine_machine_state& p);
+
 class engineMachineState : public StateMachine<engineMachineState*, Speed>
 {
 	engine_machine_state ems{ IDLE };
@@ -38,7 +38,8 @@ protected:
 public:
     engineMachineState(){};
     ~engineMachineState(){};
-	engineMachineState(engine_machine_state _ems, unsigned int _speed) : ems(_ems), speed(_speed){};
+	engineMachineState(engine_machine_state _ems, unsigned int _speed) : 
+												ems(_ems), speed(_speed){};
 	engine_machine_state& getEms() { return ems; };
 	unsigned int         getSpeed() { return speed; };
 	void setEms(engine_machine_state _ems) { ems = _ems; };

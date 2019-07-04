@@ -17,7 +17,7 @@ engineMachineState* IdleState::operator()(Speed &p)
 
 	if (p.getEventData() == 0)
 	{
-		return new IdleState();
+		ptr = new IdleState();
 	}
 	else
 	{
